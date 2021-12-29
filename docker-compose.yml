@@ -21,7 +21,7 @@ services:
       - database
   
   database:
-    image: postgres:alpine
+    build: ./database
     ports:
       - "5432:5432"
     container_name: database-docker
