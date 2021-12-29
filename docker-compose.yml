@@ -5,7 +5,7 @@ services:
   frontend: # Name of service
     build: ./frontend # Path to Dockerfile
     ports: # Port binding to host from Docker container
-      - "8080:8080" # Bind port 3000 of host to 3000 of container
+      - "8080:80" # Bind port 8080 of host to 80 of container
     container_name: frontend-docker
     restart: always
     links:
