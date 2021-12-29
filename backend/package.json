@@ -1,13 +1,14 @@
 {
   "name": "backend",
   "version": "1.0.0",
-  "description": "Novogradko RESTful API with Node.js, Express and PostgreSQL",
+  "description": "Novogradko RESTful API",
   "main": "app.js",
   "scripts": {
-    "serve": "nodemon app.js",
+    "dev": "nodemon app.js",
     "start": "node app.js"
   },
   "dependencies": {
+    "cors": "^2.8.5",
     "express": "^4.17.2",
     "pg": "^8.7.1"
   },

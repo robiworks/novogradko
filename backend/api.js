@@ -1,63 +1,24 @@
-const inMemory = [
-    {
-        name: 'Novogradnja 1'
-    },
-    {
-        name: 'Novogradnja 2'
-    },
-    {
-        name: 'Novogradnja 3'
-    }
-];
+const express = require("express");
+const router = express.Router();
 
-const getAll = async (request, response) => {
-    pool.query('SELECT * FROM buildings;', (error, results) => {
-        response.status(200).json(results.rows);
-    });
-    // response.status(200).json(inMemory);
-};
+const Novogradko = require("./controllers/Novogradko");
 
-const getById = (request, response) => {
-    const id = parseInt(request.params.id);
-    pool.query('SELECT * FROM buildings WHERE id = $1', [id], (error, results) => {
-        response.status(200).json(results.rows);
-    });
-    // response.status(200).json(inMemory[0]);
-};
+// Get all buildings
+router.get('/all', async (req, res) => {
+    let all = await new Novogradko().getAll();
+    res.status(200).send(JSON.stringify(all));
+});
 
-const addBuilding = async (request, response) => {
-    const { name } = request.body;
-    inMemory.push({ name });
-    response.status(201).send('Building added succesfully.');
-};
+// Get apartments
+router.get('/apartments', async (req, res) => {
+    let apartments = await new Novogradko().getApartments();
+    res.status(200).send(JSON.stringify(apartments));
+});
 
-const updateBuilding = (request, response) => {
-    const { name } = request.body;
-    inMemory[0] = { name };
-    response.status(200).send('First building in list updated.');
-};
+// Get houses
+router.get('/houses', async (req, res) => {
+    let houses = await new Novogradko().getHouses();
+    res.status(200).send(JSON.stringify(houses));
+});
 
-const deleteBuilding = (request, response) => {
-    inMemory.shift();
-    response.status(200).send('First building in list deleted.');
-};
-
-const Pool = require("pg").Pool;
-const pool = new Pool(
-    {
-        user: 'user',
-        host: 'novogradko',
-        database: 'novogradko',
-        password: 'pass',
-        port: '5432'
-    }
-);
-
-module.exports = {
-    getAll,
-    getById,
-    addBuilding,
-    updateBuilding,
-    deleteBuilding,
-    pool
-};
+module.exports = router;

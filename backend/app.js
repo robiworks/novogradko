@@ -1,17 +1,15 @@
 const express = require('express');
+const cors = require('cors');
 const app = express();
-const port = 8080;
 
 app.use(express.json());
+app.use(cors());
 
-app.listen(port, () => {
-    console.log(`Novogradko RESTful API is running on port ${port}.`);
+const PORT = process.env.PORT || 8080;
+
+app.listen(PORT, () => {
+    console.log(`Novogradko RESTful API is running on port ${PORT}.`);
 });
 
-const api = require('./api');
-
-app.get('/all/', api.getAll);
-app.get('/all/:id', api.getById);
-app.post('/all/', api.addBuilding);
-app.put('/all/:id', api.updateBuilding);
-app.delete('/all/:id', api.deleteBuilding);
+const apiCalls = require('./api');
+app.use(apiCalls);
