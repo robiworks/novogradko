@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- Bulma CSS -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+        <link rel="stylesheet" href="./css.css">
+        <!-- Leaflet -->
+        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A==" crossorigin=""/>
+        <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==" crossorigin=""></script>
+        <title>Novogradko</title>
+        <!-- Favicon made byFreepik from www.flaticon.com -->
+        <link rel="icon" href="./icons/buildings.png" type="image/png" sizes="512x512">
+    </head>
+    <body>
+        <!-- NAVIGATION BAR -->
+        <nav class="navbar is-link" role="navigation" aria-label="main navigation" id="navbar">
+            <div class="navbar-brand">
+                <!-- TODO: make logo or fiddle with the Novogradko text size + bold -->
+                <div class="navbar-item">
+                    <img src="./icons/buildings.png" height="28">
+                </div>
+                <div class="navbar-item">
+                    <span>Novogradko</span>
+                </div>
+                <!-- burger required for mobile devices -->
+                <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true"></span>
+                  </a>
+            </div>
+            <!-- TODO: add some javascript for navbar-menu on mobile devices -->
+            <div class="navbar-menu">
+                <div class="navbar-start">
+                    <a class="navbar-item" href="./index.html">Domov</a>
+                    <a class="navbar-item" href="./map.html">Zemljevid</a>
+                    <a class="navbar-item" href="./list.html">Seznam</a>
+                </div>
+                <div class="navbar-end">
+                    <a class="navbar-item" href="https://github.com/robiworks/novogradko" target="_blank">GitHub</a>
+                </div>
+            </div>
+        </nav>
+        <!-- PAGE CONTENT -->
+        <div id="map" style="width: 100%; height: 100%;"></div>
+    </body>
+    <script type="application/javascript" src="./map.js"></script>
+</html>
