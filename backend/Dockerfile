@@ -1,5 +1,5 @@
 # Base image
-FROM node:current-alpine
+FROM node:alpine
 
 # Make folder to put our files in
 RUN mkdir -p /usr/src/app
@@ -10,7 +10,7 @@ WORKDIR /usr/src/app/backend
 
 # Copy package json and install dependencies
 COPY package*.json ./
-RUN npm install
+RUN npm ci
 
 # Copy our app
 COPY . .
@@ -19,4 +19,4 @@ COPY . .
 EXPOSE 8080
 
 # Command to run our app
-CMD [ "npm", "start"]
+CMD node app.js

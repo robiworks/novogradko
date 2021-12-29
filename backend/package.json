@@ -4,7 +4,8 @@
   "description": "Novogradko RESTful API with Node.js, Express and PostgreSQL",
   "main": "app.js",
   "scripts": {
-    "serve": "nodemon app.js"
+    "serve": "nodemon app.js",
+    "start": "node app.js"
   },
   "dependencies": {
     "express": "^4.17.2",
