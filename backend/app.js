@@ -13,3 +13,13 @@ app.listen(PORT, () => {
 
 const apiCalls = require('./api');
 app.use(apiCalls);
+
+const gracefulShutdown = () => {
+    console.log("Starting graceful shutdown...");
+    app.close(function() {
+        console.log("Express shut down.");
+    });
+}
+
+process.on("SIGTERM", gracefulShutdown);
+process.on("SIGINT", gracefulShutdown);
