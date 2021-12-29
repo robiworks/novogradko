@@ -1,0 +1,28 @@
+version: '3'
+
+services:
+  # Create frontend container
+  frontend: # Name of service
+    build: ./frontend # Path to Dockerfile
+    ports: # Port binding to host from Docker container
+      - "3000:3000" # Bind port 3000 of host to 3000 of container
+    container_name: frontend-docker
+    restart: always
+    links:
+      - backend
+  
+  backend:
+    build: ./backend
+    ports:
+      - "8080:8080"
+    container_name: backend-docker
+    restart: always
+    links:
+      - database
+  
+  database:
+    image: postgres
+    ports:
+      - "5432:5432"
+    container_name: database-docker
+    restart: always
