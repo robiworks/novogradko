@@ -1,5 +1,5 @@
 # Base image
-FROM nginx
+FROM nginx:stable-alpine
 
 # Make folder to put our files in
 RUN mkdir -p /usr/src/app

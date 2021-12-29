@@ -1,5 +1,5 @@
 # Base image
-FROM node
+FROM node:current-alpine
 
 # Make folder to put our files in
 RUN mkdir -p /usr/src/app
