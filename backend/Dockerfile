@@ -16,7 +16,7 @@ RUN npm ci
 COPY . .
 
 # Expose port to access server
-EXPOSE 8080
+EXPOSE 5000
 
 # Command to run our app
 CMD node app.js

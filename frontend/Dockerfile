@@ -1,15 +1,11 @@
 # Base image
 FROM nginx:stable-alpine
 
-# Make folder to put our files in
-RUN mkdir -p /usr/src/app
-RUN mkdir -p /usr/src/app/frontend
-
 # Set working directory so that all subsequent command runs in this folder
-WORKDIR /usr/src/app/frontend
+WORKDIR /usr/share/nginx/html
 
 # Copy our app
 COPY . .
 
 # Expose port to access server
-EXPOSE 3000
+EXPOSE 8080
