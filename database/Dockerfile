@@ -1,6 +1,6 @@
 FROM postgres:alpine
 
-ENV POSTGRES_USER user
+ENV POSTGRES_USER novogradko
 ENV POSTGRES_PASSWORD pass
 ENV POSTGRES_DB novogradko
 

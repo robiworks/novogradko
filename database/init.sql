@@ -1,5 +1,3 @@
-GRANT ALL PRIVILEGES ON DATABASE novogradko TO user;
-
 CREATE TABLE IF NOT EXISTS buildings (
     id      SERIAL PRIMARY KEY NOT NULL,
     name    TEXT NOT NULL,
@@ -8,6 +6,8 @@ CREATE TABLE IF NOT EXISTS buildings (
     type    SMALLINT,
     website TEXT
 );
+
+GRANT ALL PRIVILEGES ON DATABASE novogradko TO novogradko;
 
 INSERT INTO buildings (name, lon, lat, type, website)
 VALUES
