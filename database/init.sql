@@ -12,7 +12,6 @@ GRANT ALL PRIVILEGES ON DATABASE novogradko TO novogradko;
 INSERT INTO buildings (name, lat, lon, type, website)
 VALUES
     -- [LJUBLJANA-MESTO]
-    -- 1. Ljubljana nepremičnine
     ('Regentov kvart', 46.084123, 14.469733, 0, 'https://www.ljubljananepremicnine.si/novogradnja/regentov-kvart'),
     ('Barjanka', 46.028976, 14.499386, 0, 'https://www.ljubljananepremicnine.si/novogradnja/barjanka'),
     ('Mivka', 46.037010, 14.503182, 0, 'https://www.ljubljananepremicnine.si/novogradnja/mivka'),
@@ -21,7 +20,6 @@ VALUES
     ('Draveljskih 8', 46.080258, 14.467919, 0, 'https://www.ljubljananepremicnine.si/novogradnja/draveljskih-8'),
     ('Vila blok 9-ka', 46.045505, 14.472233, 0, 'https://www.ljubljananepremicnine.si/novogradnja/9ka-invest'),
     ('Vila Destino', 46.050822, 14.478848, 0, 'https://www.ljubljananepremicnine.si/novogradnja/vila-destino'),
-    -- 2. Ostalo
     ('Palais & Villa Schellenburg', 46.055630, 14.501686, 0, 'https://www.schellenburg-living.com/sl/celota.html'),
     ('Rezidenca Luwigana', 46.044396, 14.509479, 0, 'http://www.luwigana.si/'),
     ('Lagom Črnuški bajer', 46.107321, 14.533545, 0, 'https://www.crnuski-bajer.si/'),
