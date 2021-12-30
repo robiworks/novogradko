@@ -42,10 +42,15 @@ function populateMarkers() {
             let lon = parseFloat(data[i].lon);
             let name = data[i].name;
             let type = parseInt(data[i].type);
+            let website = data[i].website;
+
+            let vrsta = type === 0 ? "stanovanjski objekt" : "hiša";
+            let popupContent = "<strong>" + name + "</strong><br>Vrsta: " + vrsta + "<br>Spletna stran: " + "<a target=\"_blank\" href=\"" + website + "\">klikni tukaj</a>";
+
             if (type === 0) {
-                L.marker([lat, lon], {icon: apartmentIcon}).bindPopup(name).addTo(map);
+                L.marker([lat, lon], {icon: apartmentIcon}).bindPopup(popupContent).addTo(map);
             } else {
-                L.marker([lat, lon], {icon: houseIcon}).bindPopup(name).addTo(map);
+                L.marker([lat, lon], {icon: houseIcon}).bindPopup(popupContent).addTo(map);
             }
         }
     });
