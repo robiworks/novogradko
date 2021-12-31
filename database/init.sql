@@ -36,7 +36,7 @@ CREATE TABLE IF NOT EXISTS building_type (
 
 INSERT INTO building_type (type_id, type_description)
 VALUES  (0, 'stanovanja'),
-        (1, 'hiša');
+        (1, 'hiša/hiše');
 
 CREATE TABLE IF NOT EXISTS building (
     id              SERIAL PRIMARY KEY NOT NULL,
@@ -93,5 +93,5 @@ VALUES
     ('Sončne terase', 46.448087, 15.623767, 0, 'https://www.novogradnje-maribor.si/soncne-terase/', 1, 10), -- Maribor
     ('Studenški kvart', 46.558983, 15.621527, 0, 'https://www.novogradnje-maribor.si/studenski-kvart/', 2, 10), -- Maribor
     ('Novi vrtovi', 46.547789, 15.625012, 0, 'https://www.novogradnje-maribor.si/novi-vrtovi/', 0, 10), -- Maribor
-    ('Naselje Urbana - stanovanja', 46.543599, 15.652294, 0, 'https://www.novogradnje-maribor.si/naselje-urbana/', 2, 10), -- Maribor
-    ('Naselje Urbana - hiše', 46.543674, 15.652657, 1, 'https://www.novogradnje-maribor.si/naselje-urbana/', 2, 10); -- Maribor
+    ('Naselje Urbana', 46.543599, 15.652294, 0, 'https://www.novogradnje-maribor.si/naselje-urbana/', 2, 10), -- Maribor
+    ('Naselje Urbana', 46.543674, 15.652657, 1, 'https://www.novogradnje-maribor.si/naselje-urbana/', 2, 10); -- Maribor
