@@ -38,18 +38,18 @@ var apartmentIcon = new MapIcon({iconUrl: './icons/offices.png'});
 function populateMarkers() {
     getBuildings().then(data => {
         for (let i = 0; i < data.length; i++) {
-            let id = parseInt(data[i].id);
-            let lat = parseFloat(data[i].lat);
-            let lon = parseFloat(data[i].lon);
-            let name = data[i].name;
-            let type = parseInt(data[i].type);
-            let website = data[i].website;
+            let object = data[i];
+            let id = parseInt(object.id);
+            let lat = parseFloat(object.lat);
+            let lon = parseFloat(object.lon);
 
-            let image = "<img style=\"display: inline-block; width: 100%;\" src=\"./images/" + id + ".jpg\">";
-            let vrsta = type === 0 ? "stanovanjski objekt" : "hiša";
-            let popupContent = "<span style=\"font-weight: bold; font-size: larger;\">" + name + "</span>" + image + "<span>Vrsta: " + vrsta + "</span><br><span>Spletna stran: " + "<a target=\"_blank\" href=\"" + website + "\">klikni tukaj</a></span>";
-
-            if (type === 0) {
+            let popupContent = `<span style="font-weight: bold; font-size: larger;">${object.name}</span>
+                                <img style="display: inline-block; width: 100%;" src="./images/${id}.jpg">
+                                <span>Vrsta: <strong>${object.type_description}</strong></span><br>
+                                <span>Stanje: <strong>${object.status_description}</strong></span><br>
+                                <span>Spletna stran: <a target="_blank" href="${object.website}">kliknite tukaj</a></span>`
+            
+            if (object.type_id === 0) {
                 L.marker([lat, lon], {icon: apartmentIcon}).bindPopup(popupContent, {maxWidth: 300, minWidth: 300}).addTo(map);
             } else {
                 L.marker([lat, lon], {icon: houseIcon}).bindPopup(popupContent, {maxWidth: 300, minWidth: 300}).addTo(map);
