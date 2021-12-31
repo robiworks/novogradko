@@ -77,3 +77,15 @@ As you can see, the database and frontend images are practically the same size, 
 ### Use of Volumes
 
 Docker Volumes were used for the frontend image/container. NGINX serves files from the directory `/usr/share/nginx/html` by default, and I mounted the `frontend/site-content` directory into it inside the `docker-compose.yml` file. This also allows me to make changes to the static files without having to rebuild the container.
+
+## Possible improvements & additions
+
+As this is just a prototype of the application a lot more could be added to the final product. Here are just a few that came to my mind:
+
+1. Add the ability to add a new residential building through the web UI instead of having to fiddle with the database (add `POST` method to API, validation, ...).
+2. List filtering: as you can see this was planned for the prototype but I did not implement it (yet) because it would take a significant amount of time.
+3. Map filtering: same as list filtering but for the map UI.
+4. A better homepage: self-explanatory.
+5. An English version of the web application: the application is currently only available in Slovenian, an English variant would be a nice addon.
+6. Smaller backend image size: as explained above, making a custom image would drastically reduce the size (install Node only, remove NPM ...).
+7. Building descriptions: add descriptions for each building, add them to the database and display them in the app.
