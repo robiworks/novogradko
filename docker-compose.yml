@@ -6,7 +6,7 @@ services:
     build: ./frontend # Path to Dockerfile
     ports: # Port binding to host from Docker container
       - "8080:80" # Bind port 8080 of host to 80 of container
-    container_name: frontend-docker
+    container_name: ng-frontend
     restart: always
     links:
       - backend
@@ -17,12 +17,12 @@ services:
     build: ./backend
     ports:
       - "5000:5000"
-    container_name: backend-docker
+    container_name: ng-backend
     restart: always
     links:
       - database
   
   database:
     build: ./database
-    container_name: database-docker
+    container_name: ng-database
     restart: always
