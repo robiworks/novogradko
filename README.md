@@ -85,6 +85,10 @@ The backend currently supports 3 API calls, all of them are `GET` methods and re
 - `/apartments`: returns apartments only.
 - `/houses`: returns houses only.
 
+### Database initialisation
+
+The database is initialised with a `init.sql` file/script copied over to the `/docker-entrypoint-initdb.d/` directory inside the database image. The official PostgreSQL Docker image will run `.sql` scripts found in that directory. The script creates all the tables that I planned out for the database and fills them with data.
+
 ## Possible improvements & additions
 
 As this is just a prototype of the application a lot more could be added to the final product. Here are just a few that came to my mind:
