@@ -42,3 +42,38 @@ To access the list of new residential buildings, click on `Seznam`. You will be 
 ![Novogradko list](https://i.imgur.com/OO53SFs.png)
 
 Filtering is not implemented currently as this is just a prototype of the web application and not the final finished product. This can also be seen on the *unpolished* homepage, a relatively small database (34 entries)...
+
+## Under the hood
+
+### Application components
+
+The application is composed of a database container, a backend container and a frontend container.
+
+- **PostgreSQL** was chosen as the (SQL) database of choice due to its speed and reliability. I have worked with MySQL in the past but decided to try something new for this project.
+- **Node.js** was chosen as the backend/API part of the application due to its widespread use, quick prototyping and some positive personal experience with it.
+- **Bulma** was chosen as the frontend CSS framework as the application prototype does not need an extensive library like Bootstrap. It also needs almost no JavaScript files to function properly.
+- **NGINX** was chosen as the frontend web server due to its speed and personal experience with it.
+
+### Which images?
+
+I used Alpine images for everything as the image size is much smaller (e.g. according to Docker Hub, the `latest` Node.js image is 351.68 MB compressed at the time of writing, and the `alpine` Node.js image is 48.75 MB compressed at the time of writing).
+
+### Image size
+
+I used multi-stage builds to reduce the size of the backend image from 178 MB to 174 MB. The Node.js Alpine image is 170 MB and I believe I couldn't have gone any smaller without completely deleting my application :). I could have built a custom image from the base Alpine image but decided against it as this is just a prototype. Here is a list of sizes next to their base image companions:
+
+```
+REPOSITORY               TAG             IMAGE ID       CREATED          SIZE
+novogradko_backend       latest          db630d216186   16 minutes ago   174MB
+novogradko_frontend      latest          da4088624b69   16 minutes ago   23.2MB
+novogradko_database      latest          185b2cabda58   16 minutes ago   209MB
+node                     alpine          e32df7d6c22c   10 days ago      170MB
+postgres                 alpine          2302d5724f71   4 weeks ago      209MB
+nginx                    stable-alpine   373f8d4d4c60   6 weeks ago      23.2MB
+```
+
+As you can see, the database and frontend images are practically the same size, only a few kB larger at most. The frontend image is exactly the same size as the NGINX base image because it uses Docker Volumes to get the static files it needs to serve.
+
+### Use of Volumes
+
+Docker Volumes were used for the frontend image/container. NGINX serves files from the directory `/usr/share/nginx/html` by default, and I mounted the `frontend/site-content` directory into it inside the `docker-compose.yml` file. This also allows me to make changes to the static files without having to rebuild the container.
