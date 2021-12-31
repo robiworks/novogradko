@@ -10,6 +10,8 @@ services:
     restart: always
     links:
       - backend
+    volumes:
+      - ./frontend/site-content:/usr/share/nginx/html
   
   backend:
     build: ./backend
