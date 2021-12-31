@@ -100,3 +100,4 @@ As this is just a prototype of the application a lot more could be added to the 
 5. An English version of the web application: the application is currently only available in Slovenian, an English variant would be a nice addon.
 6. Smaller backend image size: as explained above, making a custom image would drastically reduce the size (install Node only, remove NPM ...).
 7. Building descriptions: add descriptions for each building, add them to the database and display them in the app.
+8. The application currently only works on **localhost** due to the configuration of the API. In case it was actually deployed for real-life use, `localhost` would have to be replaced with the IP address of the server running the API container, or the domain name associated with that IP.
