@@ -49,10 +49,10 @@ Filtering is not implemented currently as this is just a prototype of the web ap
 
 The application is composed of a database container, a backend container and a frontend container.
 
-- **PostgreSQL** was chosen as the (SQL) database of choice due to its speed and reliability. I have worked with MySQL in the past but decided to try something new for this project.
-- **Node.js** was chosen as the backend/API part of the application due to its widespread use, quick prototyping and some positive personal experience with it.
-- **Bulma** was chosen as the frontend CSS framework as the application prototype does not need an extensive library like Bootstrap. It also needs almost no JavaScript files to function properly.
-- **NGINX** was chosen as the frontend web server due to its speed and personal experience with it.
+- **[PostgreSQL](https://www.postgresql.org/)** was chosen as the (SQL) database of choice due to its speed and reliability. I have worked with MySQL in the past but decided to try something new for this project.
+- **[Node.js](https://nodejs.org/en/)** was chosen as the backend/API part of the application due to its widespread use, quick prototyping and some positive personal experience with it.
+- **[Bulma](https://bulma.io/)** was chosen as the frontend CSS framework as the application prototype does not need an extensive library like Bootstrap. It also needs almost no JavaScript files to function properly.
+- **[NGINX](https://www.nginx.com/)** was chosen as the frontend web server due to its speed and personal experience with it. As well as that I only needed to serve static files.
 
 ### Which images?
 
@@ -77,6 +77,13 @@ As you can see, the database and frontend images are practically the same size, 
 ### Use of Volumes
 
 Docker Volumes were used for the frontend image/container. NGINX serves files from the directory `/usr/share/nginx/html` by default, and I mounted the `frontend/site-content` directory into it inside the `docker-compose.yml` file. This also allows me to make changes to the static files without having to rebuild the container.
+
+### Backend API
+
+The backend currently supports 3 API calls, all of them are `GET` methods and return an array of JSON objects.
+- `/all`: returns all buildings.
+- `/apartments`: returns apartments only.
+- `/houses`: returns houses only.
 
 ## Possible improvements & additions
 
